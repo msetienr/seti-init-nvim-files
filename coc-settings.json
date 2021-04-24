@@ -1,0 +1,90 @@
+// be careful not to condense the hierarchy as it breaks pyls
+{
+"suggest.noselect": false,
+"suggest.enablePreview": true,
+"suggest.removeDuplicateItems": true,
+"codeLens.enable": true,
+"coc.preferences.jumpCommand": "drop",
+"coc.preferences.rootPatterns": [".git", ".vscode"],
+"coc.preferences.formatOnSaveFiletypes": ["python", "javascript", "javascriptreact", "typescriptreact", "css"],
+"diagnostic.checkCurrentLine": false,
+"diagnostic.messageTarget": "float",
+"diagnostic.separateRelatedInformationAsDiagnostics": true,
+"diagnostic.virtualText": false,
+"diagnostic.virtualTextCurrentLineOnly": false,
+"python.linting.enabled": true,
+"python.linting.pylintEnabled": false,
+"python.linting.flake8Enabled": true,
+"python.formatting.provider": "black",
+"python.formatting.blackPath": "~/.local/bin/black",
+"python.venvPath": "~/Envs",
+"languageserver": {
+  "python": {
+    "command": "python",
+    "args": [
+      "-mpyls",
+      "-vv",
+      "--log-file",
+      "/tmp/lsp_python.log"
+    ],
+    "trace.server": "verbose",
+    "filetypes": [
+      "python"
+    ],
+    "settings": {
+      "pyls": {
+        "enable": true,
+        "trace": {
+          "server": "verbose"
+        },
+        "commandPath": "",
+        "configurationSources": [
+          "pycodestyle"
+        ],
+        "plugins": {
+          "jedi_completion": {
+            "enabled": true
+          },
+          "jedi_hover": {
+            "enabled": true
+          },
+          "jedi_references": {
+            "enabled": true
+          },
+          "jedi_signature_help": {
+            "enabled": true
+          },
+          "jedi_symbols": {
+            "enabled": true,
+            "all_scopes": true
+          },
+          "mccabe": {
+            "enabled": true,
+            "threshold": 15
+          },
+          "preload": {
+            "enabled": true
+          },
+          "pycodestyle": {
+            "enabled": true
+          },
+          "pydocstyle": {
+            "enabled": false,
+            "match": "(?!test_).*\\.py",
+            "matchDir": "[^\\.].*"
+          },
+          "pyflakes": {
+            "enabled": true
+          },
+          "rope_completion": {
+            "enabled": true
+          },
+          "yapf": {
+            "enabled": true
+          }
+        }
+      }
+    }
+  }
+ }
+}
